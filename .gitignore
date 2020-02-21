@@ -4,3 +4,5 @@ venv/
 # editor settings
 .vscode
 
+# logs
+logs
