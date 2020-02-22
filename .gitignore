@@ -6,3 +6,8 @@ venv/
 
 # logs
 logs
+
+# dev
+__pycache__/
+
+app/__pycache__/
