@@ -8,6 +8,6 @@ venv/
 logs
 
 # dev
-__pycache__/
+app.db
 
-app/__pycache__/
+migrations/

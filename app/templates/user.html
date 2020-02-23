@@ -13,7 +13,6 @@
                 <p>
                     <a href="{{ url_for('edit_profile')}}">Edit Profile</a>
                 </p>
-
                 {% else %}
                 
                 <p>
@@ -22,7 +21,6 @@
                 <p>
                     <a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a>
                 </p>
-                
                 {% endif %}
                 
                 <p>
@@ -47,15 +45,20 @@
 
             </td>
         </tr>
-
     </table>
     
     <hr>
 
-    {% for post in posts%}
-
-        {% include '_post.html'%}
-
+    {% for post in posts %}
+        {% include '_post.html' %}
     {% endfor %}
+
+    {% if prev_url %}
+    <a href="{{ prev_url }}">Latest posts</a>
+    {% endif %}
+
+    {% if next_url %}
+    <a href="{{ next_url }}">Older posts</a>
+    {% endif %}
 {% endblock %}
 
