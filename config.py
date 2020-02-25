@@ -8,7 +8,7 @@ class Config(object):
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    POSTS_PER_PAGE = 2
+    POSTS_PER_PAGE = 25
 
     """ Sending Errors by Email """
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
