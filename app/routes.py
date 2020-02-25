@@ -103,7 +103,7 @@ def edit_profile():
 @app.before_request
 def before_request():
     if current_user.is_authenticated:
-        current_user.last_seen = datetime.utcnow().strftime("%b %d, %Y %H:%M")
+        current_user.last_seen = datetime.utcnow()
         db.session.commit()
 
 
@@ -133,7 +133,7 @@ def register():
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
         user.set_password(form.password.data)
-        current_user.date_joined = datetime.utcnow().strftime("%b %d, %Y")
+        current_user.date_joined = datetime.utcnow()
 
         db.session.add(user)
         db.session.commit()
