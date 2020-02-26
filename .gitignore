@@ -9,5 +9,4 @@ logs
 
 # dev
 app.db
-
 migrations/
