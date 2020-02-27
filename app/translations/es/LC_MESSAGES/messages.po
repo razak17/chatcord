@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-26 21:22+0000\n"
+"POT-Creation-Date: 2020-02-27 06:50+0000\n"
 "PO-Revision-Date: 2020-02-26 20:52+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -86,47 +86,45 @@ msgstr "Recuérdame"
 msgid "Sign In"
 msgstr "Registrarse"
 
-#: app/routes.py:23
+#: app/routes.py:28
 msgid "You password has been changed succssfully."
 msgstr "Su contraseña ha sido modificada con éxito."
 
-#: app/routes.py:37
+#: app/routes.py:42
 msgid "Check your email for a link to reset your pasword."
-msgstr ""
-"Revise su correo electrónico para obtener un enlace para restablecer su "
-"contraseña."
+msgstr "Revise su correo electrónico para obtener un enlace para restablecer su contraseña."
 
-#: app/routes.py:64
+#: app/routes.py:69
 msgid "You cannot follow yourself!"
 msgstr "¡No puedes seguirte a ti mismo!"
 
-#: app/routes.py:68
+#: app/routes.py:73
 #, python-format
 msgid "You are following %(username)s!"
 msgstr "¡Ahora estás siguiendo a %(username)s!"
 
-#: app/routes.py:79
+#: app/routes.py:84
 msgid "You cannot unfollow yourself!"
 msgstr "¡No te puedes dejar de seguir a tí mismo!"
 
-#: app/routes.py:83
+#: app/routes.py:88
 #, python-format
 msgid "You are not following %(username)s."
 msgstr "No estás siguiendo a %(username)s."
 
-#: app/routes.py:94
+#: app/routes.py:99
 msgid "Your changes have been saved."
 msgstr "Se han guardado los cambios."
 
-#: app/routes.py:141
+#: app/routes.py:146
 msgid "Congratulations, you are now a registered user!"
 msgstr "¡Felicitaciones, ahora eres un usuario registrado!"
 
-#: app/routes.py:164
+#: app/routes.py:169
 msgid "Invalid username or password"
 msgstr "¡usuario o contraseña invalido"
 
-#: app/routes.py:185
+#: app/routes.py:190
 msgid "Your post is live!"
 msgstr "¡Tu publicación es en vivo!"
 
@@ -152,8 +150,8 @@ msgid "%(username)s said %(when)s"
 msgstr "%(username)s dijo %(when)s"
 
 #: app/templates/base.html:4
-msgid "Welcome to Microblog"
-msgstr "Bienvenido a Microblog"
+msgid "Welcome to Arazmo"
+msgstr "Bienvenido a Arazmo"
 
 #: app/templates/base.html:21
 msgid "Home"
@@ -245,4 +243,7 @@ msgstr "Seguir"
 #: app/templates/user.html:22
 msgid "Unfollow"
 msgstr "Dejar de seguir"
+
+#~ msgid "Welcome to Microblog"
+#~ msgstr "Bienvenido a Microblog"
 

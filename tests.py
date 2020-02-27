@@ -1,23 +1,31 @@
+#!/usr/bin/env python
 from datetime import datetime, timedelta
 import unittest
-from app import app, db
+from app import create_app, db
 from app.models import User, Post
+from Config import Config
 
+class TestConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'
 
 class UserModelCase(unittest.TestCase):
     def setUp(self):
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
+        self.app = create_app(TestConfig)
+        self.app_context = self.app.app_context()
+        self.app_context.push()
         db.create_all()
 
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+        self.app_context.pop()
 
     def test_password_hashing(self):
         u = User(username='sue')
-        u.set_password('0709')
+        u.set_password('thesue')
         self.assertFalse(u.check_password('dog'))
-        self.assertTrue(u.check_password('0709'))
+        self.assertTrue(u.check_password('thesue'))
         
     def test_avatar(self):
         u = User(username='sue', email='sue@gmail.com')
@@ -28,7 +36,7 @@ class UserModelCase(unittest.TestCase):
 
     def test_follow(self):
         u1 = User(username='sue', email='sue@gmail.com')
-        u2 = User(username='razak', email='razak@gmail.com')
+        u2 = User(username='razak', email='abdulrazacqm@gmail.com')
         db.session.add(u1)
         db.session.add(u2)
         db.session.commit()
@@ -52,9 +60,9 @@ class UserModelCase(unittest.TestCase):
     def test_follow_posts(self):
         # create four users
         u1 = User(username='sue', email='sue@gmail.com')
-        u2 = User(username='razak', email='razak@gmail.com')
-        u3 = User(username='arazak', email='sykes@gmail.com')
-        u4 = User(username='xander', email='kazar@gmail.com')
+        u2 = User(username='razak', email='abdulrazacqm@gmail.com')
+        u3 = User(username='sykes', email='sykes@gmail.com')
+        u4 = User(username='xander', email='xander@gmail.com')
         db.session.add_all([u1, u2, u3, u4])
 
         # create four posts
@@ -63,7 +71,7 @@ class UserModelCase(unittest.TestCase):
                 timestamp=now + timedelta(seconds=1))
         p2 = Post(body="post from razak", author=u2,
                 timestamp=now + timedelta(seconds=4))
-        p3 = Post(body="post from arazak", author=u3,
+        p3 = Post(body="post from sykes", author=u3,
                 timestamp=now + timedelta(seconds=3))
         p4 = Post(body="post from xander", author=u4,
                 timestamp=now + timedelta(seconds=2))
