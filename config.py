@@ -22,3 +22,5 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['r17.abdul@gmail.com']
     LANGUAGES = ['en', 'es']
+
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')

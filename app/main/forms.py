@@ -6,6 +6,16 @@ from app.models import User
 from flask_babel import _, lazy_gettext as _l
 
 
+class SearchForm(FlaskForm):
+    q = StringField(_l('Search'), validators=[DataRequired()])
+
+    def __init__(self, *args, **kwargs):
+        if 'formdata' not in kwargs:
+            kwargs['formdata'] = request.args
+        if 'csrf_enabled' not in kwargs:
+            kwargs['csrf_enabled'] = False
+        super(SearchForm, self).__init__(*args, **kwargs)
+
 
 class PostForm(FlaskForm):
     post = TextAreaField(_l('Say Something'), validators=[
