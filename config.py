@@ -23,4 +23,5 @@ class Config(object):
     ADMINS = ['r17.abdul@gmail.com']
     LANGUAGES = ['en', 'es']
 
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
