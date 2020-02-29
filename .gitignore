@@ -8,6 +8,6 @@ venv/
 logs
 
 # dev
-./app.db
+app.db
 
 .env
