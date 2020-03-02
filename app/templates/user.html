@@ -1,9 +1,5 @@
 {% extends "base.html" %}
 
-{% block title %}
-    {{ current_user.username }}
-{% endblock %}
-
 
 {% block app_content %}
     <table class="table table-hover">
@@ -18,6 +14,11 @@
                 {% if user.date_joined %}
                 <p>{{ _('Joined on') }}: {{ moment(user.date_joined).format('LLL') }}</p>
                 {% endif %}
+                {% if user != current_user %}
+                <p><a href="{{ url_for('main.send_message', recipient=user.username)}}">
+                    {{ _('Send private message' )}}
+                </a></p>
+                {% endif %}
                 {% if user == current_user %}
                 <p><a href="{{ url_for('main.edit_profile') }}">{{ _('Edit your profile') }}</a></p>
                 {% elif not current_user.is_following(user) %}
@@ -25,7 +26,8 @@
                 {% else %}
                 <p><a href="{{ url_for('main.unfollow', username=user.username) }}">{{ _('Unfollow') }}</a></p>
                 {% endif %}
-                <p>{{ _('%(count)d followers', count=user.followers.count()) }}, {{ _('%(count)d following', count=user.followed.count()) }}</p>
+                <p>{{ _('%(count)d followers', count=user.followers.count()) }}, 
+                    {{ _('%(count)d following', count=user.followed.count()) }}</p>
             </td>
         </tr>
     </table>
